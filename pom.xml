@@ -22,10 +22,11 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
+        <!-- 注意：不通同时使用两种模板，如果准备用jsp模板，那就不要再启用Thymeleaf了，不然前端页面将报错（找不到Thymeleaf）。 -->
+        <!--<dependency>-->
+        <!--    <groupId>org.springframework.boot</groupId>-->
+        <!--    <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -51,6 +52,33 @@
         </dependency>
 
 
+        <!--引入Spring Boot内嵌的Tomcat对JSP的解析包，不加解析不了jsp页面-->
+        <!--如果只是使用JSP页面，可以只添加该依赖-->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+        </dependency>
+
+        <!--如果要使用servlet必须添加该以下两个依赖-->
+        <!-- servlet依赖的jar包-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+
+        <!-- jsp依赖jar包-->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
+        <!--如果使用JSTL必须添加该依赖-->
+        <!--jstl标签依赖的jar包start-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
 
 
 
@@ -71,6 +99,24 @@
     </dependencies>
 
     <build>
+
+        <!--
+            SpringBoot要求jsp文件必须编译到指定的META-INF/resources目录下才能访问，否则访问不到。
+            其它官方已经建议使用模版技术（后面会课程会单独讲解模版技术）
+        -->
+        <resources>
+            <resource>
+                <!--源文件位置-->
+                <directory>src/main/webapp</directory>
+                <!--指定编译到META-INF/resource，该目录不能随便写-->
+                <targetPath>META-INF/resources</targetPath>
+                <!--指定要把哪些文件编译进去，**表示webapp目录及子目录，*.*表示所有文件-->
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
