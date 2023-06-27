@@ -1,12 +1,11 @@
-package com.madaha.codesecmemshell.controller;
-
+package com.madaha.codesecmemshell.controller.Demo_MemShell.tomcat;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class DemoController {
+public class ListenerMemShell {
 
     /**
      * 注意点：
@@ -15,9 +14,9 @@ public class DemoController {
      *
      *    （2）使用Controller可以直接访问jsp页面；  如果是使用war形式 + 配置前后缀，也可以直接访问jsp页面！
      */
-    @RequestMapping("/springBoot/jsp")
-    public String jsp(Model model){
+    @RequestMapping("/jsp/Listener/MemShell")
+    public String jspListenerMemShell(Model model){
         model.addAttribute("data", "SpringBoot Controller Model 返回前端，构建JSP数据页面！");
-        return "index";
+        return "Listener";
     }
 }
