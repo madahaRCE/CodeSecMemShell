@@ -31,6 +31,7 @@
         <!--    <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
         <!--</dependency>-->
 
+
         <!-- SpringBoot web 核心组件 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -63,11 +64,13 @@
             <artifactId>tomcat-embed-jasper</artifactId>
         </dependency>
 
+
         <!-- JSTL for JSP；  jstl标签依赖的jar包start-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
         </dependency>
+
 
         <!--如果要使用servlet必须添加该以下两个依赖。 servlet依赖的jar包-->
         <dependency>
