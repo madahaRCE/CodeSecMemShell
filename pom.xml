@@ -133,7 +133,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <includeSystemScope>true</includeSystemScope>
-                    <fork>true</fork>
+                    <fork>true</fork>  <!-- fork 属性来指定是否在单独的 JVM 中运行应用程序 -->
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>

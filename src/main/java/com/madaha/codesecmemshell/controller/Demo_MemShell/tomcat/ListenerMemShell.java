@@ -17,6 +17,6 @@ public class ListenerMemShell {
     @RequestMapping("/jsp/Listener/MemShell")
     public String jspListenerMemShell(Model model){
         model.addAttribute("data", "SpringBoot Controller Model 返回前端，构建JSP数据页面！");
-        return "ListenerShell";
+        return "Listener_Shell";
     }
 }
