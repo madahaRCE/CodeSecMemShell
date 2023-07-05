@@ -5,7 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
 
-@WebServlet("/Shell")
+//@WebServlet("/Shell")
 public class Shell_Servlet implements Servlet {
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
