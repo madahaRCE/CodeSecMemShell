@@ -37,7 +37,6 @@ public class ControllerMemeShell {
         RequestMappingInfo info = new RequestMappingInfo(url, ms, null, null, null, null, null);
 
         r.registerMapping(info, new Controller_Shell(), method);
-
     }
 
 
