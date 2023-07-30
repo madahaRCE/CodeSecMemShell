@@ -26,7 +26,7 @@ public class InterceptorMemShell {
 
 
     @ResponseBody
-    @RequestMapping("/inject")
+    @RequestMapping("/inject_Interceptor")
     public void Inject() throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
 
         //获取上下文环境

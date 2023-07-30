@@ -3,7 +3,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <packaging>war</packaging>    <!--指定为war包-->
+
+    <!-- <packaging>pom</packaging>-->
+    <!-- No active profile set, falling back to default profiles: default -->
+    <!--
+        Spring程序启动时没有找到默认的配置文件所引发的，于是他自己选择了默认的配置文件。
+            1、我猜你是打包默认为pom模式了，查看下<package>标签!!!!
+            2、you are right! very good! 谢谢！pom模式，不会加载配置文件？！
+            3、删除就行了，默认是jar,pom是模块功能的意思，不是一个可以运行的模块
+    -->
+
+    <!--    <modules>-->
+    <!--        <module>Java_Agent</module>-->
+    <!--    </modules>    -->
+    <!--指定为war包-->
+
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -53,10 +67,10 @@
 
 
         <!-- 引入Spring Boot内嵌的Tomcat对JSP的解析包，不加解析不了jsp页面 -->
-        <!--<dependency>-->
-        <!--    <groupId>org.springframework.boot</groupId>-->
-        <!--    <artifactId>spring-boot-starter-tomcat</artifactId>-->
-        <!--</dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-tomcat</artifactId>-->
+<!--        </dependency>-->
 
         <!-- SpringBoot 外部tomcat支持。  如果只是使用JSP页面，可以只添加该依赖 -->
         <dependency>
@@ -95,6 +109,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.20.0-GA</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -110,6 +130,14 @@
                 <!--指定编译到META-INF/resource，该目录不能随便写-->
                 <targetPath>META-INF/resources</targetPath>
                 <!--指定要把哪些文件编译进去，**表示webapp目录及子目录，*.*表示所有文件-->
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+            </resource>
+
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
                 <includes>
                     <include>**/*.*</include>
                 </includes>
