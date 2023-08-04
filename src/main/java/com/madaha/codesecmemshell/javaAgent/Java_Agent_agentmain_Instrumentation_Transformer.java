@@ -1,7 +1,5 @@
 package com.madaha.codesecmemshell.javaAgent;
 
-import com.madaha.codesecmemshell.javaAgent.ApplicationFilterChain_Transform_Filter;
-
 import java.lang.instrument.Instrumentation;
 import java.lang.instrument.UnmodifiableClassException;
 
