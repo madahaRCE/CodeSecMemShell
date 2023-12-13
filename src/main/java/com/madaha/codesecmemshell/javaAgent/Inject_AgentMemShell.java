@@ -17,9 +17,10 @@ public class Inject_AgentMemShell {
                 // 连接指定JVM
                 VirtualMachine virtualMachine = VirtualMachine.attach(vmd.id());
                 // 加载Agent
-                virtualMachine.loadAgent("out/artifacts/Java_Agent_jar/Java_Agent.jar");
+                virtualMachine.loadAgent("C:\\Users\\ThreatBook\\IdeaProjects\\CodeSecMemShell\\src\\main\\java\\com\\madaha\\codesecmemshell\\javaAgent\\AgentJar\\CodeSecAgentmain.jar");
                 // 断开JVM连接
                 virtualMachine.detach();
+                System.out.println("agentmain success!");
             }
         }
     }
