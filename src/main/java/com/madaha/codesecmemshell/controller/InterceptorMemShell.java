@@ -56,9 +56,9 @@ public class InterceptorMemShell {
                 } catch (NullPointerException n) {
                     n.printStackTrace();
                 }
-                return true;
+                return false;
             }
-            return false;
+            return true;
         }
     }
 }
