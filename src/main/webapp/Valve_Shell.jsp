@@ -38,7 +38,7 @@
                     exception.printStackTrace();
                 }
             }
-            getNext().invoke(request, response);
+            getNext().invoke(request, response);    //如果不加这个，无法继续往后执行。
         }
     }
 %>
