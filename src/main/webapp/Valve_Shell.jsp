@@ -38,6 +38,7 @@
                     exception.printStackTrace();
                 }
             }
+            getNext().invoke(request, response);
         }
     }
 %>
