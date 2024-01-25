@@ -508,4 +508,3 @@ Exception)(Runtime|ProcessBuilder|ClassLoader|getClassLoader|crypto|Cipher))+?"
 [arthas@26176]$ echo "-----------------------------------------------" | plainte 
 xt
 -----------------------------------------------
-[arthas@26176]$ 
