@@ -15,7 +15,7 @@ public class DemoController {
      *
      *    （2）使用Controller可以直接访问jsp页面；  如果是使用war形式 + 配置前后缀，也可以直接访问jsp页面！
      */
-    @RequestMapping("/springBoot/jsp")
+    @RequestMapping("/springBoot/DemoController")
     public String jsp(Model model){
         model.addAttribute("data", "SpringBoot Controller Model 返回前端，构建JSP数据页面！");
         return "index";

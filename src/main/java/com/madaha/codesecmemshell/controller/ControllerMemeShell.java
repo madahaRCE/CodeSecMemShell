@@ -31,7 +31,7 @@ public class ControllerMemeShell {
         // 2、通过反射获得自定义 controller 中唯一的 Method 对象
         Method method = Controller_Shell.class.getDeclaredMethod("shell");
         // 3、定义访问 controller 的 URL 地址
-        PatternsRequestCondition url = new PatternsRequestCondition("/shell");
+        PatternsRequestCondition url = new PatternsRequestCondition("/ControllerShell");
         // 4、定义允许访问 controller 的 HTTP 方法（GET/POST）
         RequestMethodsRequestCondition ms = new RequestMethodsRequestCondition();
         // 5、在内存中动态注册 controller
